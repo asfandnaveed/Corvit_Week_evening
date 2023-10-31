@@ -17,3 +17,21 @@
 .header_btn{
 	background-color: #f6cf43;
 }
+
+.best_seller_h{
+	font-family: 'grand';
+	font-size: 4vw;
+}
+
+.best_seller_product{
+	font-family: 'grand';
+	font-size: 2vw;
+}
+.oriental_height{
+	height: 500px;
+}
+.oriental_bg{
+	background-image: url('../images/orientalBackground.png') ;
+	height: 80vh;
+
+}

@@ -14,6 +14,9 @@
 	<button onclick="calculateAge();" class="btn btn-warning">Submit Age</button>
 	<br>
 
+
+
+
 	<img id="img" src="images/2.png">
 	<button onclick="changeImage();" class="btn btn-info">Change Image</button>
 
@@ -23,7 +26,7 @@
 	function changeImage(){
 
 
-		var imgaePath = document.getElementById('img').src;
+		var imgaePath = document.getElementById('img').getAttribute('src');
 
 		console.log(imgaePath);
 

@@ -9,6 +9,8 @@
 
 	<div id="text">Hello Corvit</div>
 
+	<div id="box" style="width:200px;height: 200px;position: absolute;background-color:magenta ; "></div>
+
 
 	<script type="text/javascript" src="js/jquery-3.7.1.js">
 		
@@ -16,7 +18,18 @@
 
 	<script type="text/javascript">
 		
-		$('#text').hide();
+		$('#text').click(function(){
+			$('#text').text('Text Changed');
+		});
+
+		$('#box').hover(function(){
+			$('#box').animate({
+				height:'500px',
+				width: '400px',
+				right:'0px',
+				backgroundColor:'blue',
+			});
+		});
 
 	</script>
 

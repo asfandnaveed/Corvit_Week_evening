@@ -9,14 +9,21 @@ $databaseName = 'corvit_week_eve';
 $con = new mysqli($serverAddress,$username,$password,$databaseName);
 
 
-// $sql = "INSERT INTO products (p_name,p_price,p_stock,p_description,created_at) VALUE ('Dell Laptop',6000,'50','Test test', '2023-11-23 15:17:13')";
+if(isset($_POST['productName'])){
+  $product_name = $_POST['productName'];
+$product_price = $_POST['productPrice'];
+$product_stock = $_POST['productStock'];
+$product_description = $_POST['productDescription'];
+
+$sql = "INSERT INTO products (p_name,p_price,p_stock,p_description,created_at) VALUE ('$product_name','$product_price','$product_stock','$product_description', '2023-11-23 15:17:13')";
 
 
-// if( $con ->query($sql)==TRUE ){
-// 	echo 'Data Inserted ! ';
-// }else{
-// 	echo 'Something Went Wrong ! ';
-// }
+if( $con ->query($sql)==TRUE ){
+  echo 'Data Inserted ! ';
+}else{
+  echo 'Something Went Wrong ! ';
+}
+}
 
 ?>
 
@@ -33,7 +40,7 @@ $con = new mysqli($serverAddress,$username,$password,$databaseName);
   <body>
     
   	<div class="container">
-      <form action="connection.php" method="GET">
+      <form action="connection.php" method="POST">
   		<div class="row">
   			<!-- Column 1 -->
   			<div class="col-12">
@@ -64,7 +71,7 @@ $con = new mysqli($serverAddress,$username,$password,$databaseName);
   			<!-- Column 6 -->
   			<div class="col-12">
   				<div class="d-flex justify-content-center" >
-  					<button class="btn btn-primary mt-3 w-50">Save Product Data</button>
+  					<button type="submit" class="btn btn-primary mt-3 w-50">Save Product Data</button>
   				</div>
   			</div>
 

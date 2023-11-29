@@ -8,21 +8,23 @@ $databaseName = 'corvit_week_eve';
 
 $con = new mysqli($serverAddress,$username,$password,$databaseName);
 
+if( isset($_POST['productName']) ){
 
-if(isset($_POST['productName'])){
+
   $product_name = $_POST['productName'];
-$product_price = $_POST['productPrice'];
-$product_stock = $_POST['productStock'];
-$product_description = $_POST['productDescription'];
+  $product_price = $_POST['productPrice'];
+  $product_stock = $_POST['productStock'];
+  $product_description = $_POST['productDescription'];
 
-$sql = "INSERT INTO products (p_name,p_price,p_stock,p_description,created_at) VALUE ('$product_name','$product_price','$product_stock','$product_description', '2023-11-23 15:17:13')";
+  $sql = "INSERT INTO products (p_name,p_price,p_stock,p_description,created_at) VALUE ('$product_name','$product_price','$product_stock','$product_description', '2023-11-23 15:17:13')";
 
 
-if( $con ->query($sql)==TRUE ){
-  echo 'Data Inserted ! ';
-}else{
-  echo 'Something Went Wrong ! ';
-}
+  if( $con ->query($sql)==TRUE ){
+    echo 'Data Inserted ! ';
+  }else{
+    echo 'Something Went Wrong ! ';
+  }
+
 }
 
 ?>
@@ -51,7 +53,7 @@ if( $con ->query($sql)==TRUE ){
   			<!-- Column 2 -->
   			<div class="col-12">
   				<label class="form-label">Product Name</label>
-  				<input name="productName" class="form-control" type="text" placeholder="Product Name">
+  				<input name="productName" class="form-control" type="email" placeholder="Product Name" required>
   			</div>
   			<!-- Column 3 -->
   			<div class="col-6">

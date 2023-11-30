@@ -8,6 +8,9 @@ $databaseName = 'corvit_week_eve';
 
 $con = new mysqli($serverAddress,$username,$password,$databaseName);
 
+
+  
+
 if( isset($_POST['productName']) ){
 
 
@@ -16,7 +19,11 @@ if( isset($_POST['productName']) ){
   $product_stock = $_POST['productStock'];
   $product_description = $_POST['productDescription'];
 
-  $sql = "INSERT INTO products (p_name,p_price,p_stock,p_description,created_at) VALUE ('$product_name','$product_price','$product_stock','$product_description', '2023-11-23 15:17:13')";
+  $dateTime = date("Y-m-d H:m:s");
+ 
+
+
+  $sql = "INSERT INTO products (p_name,p_price,p_stock,p_description,created_at) VALUE ('$product_name','$product_price','$product_stock','$product_description', '$dateTime')";
 
 
   if( $con ->query($sql)==TRUE ){
@@ -53,7 +60,7 @@ if( isset($_POST['productName']) ){
   			<!-- Column 2 -->
   			<div class="col-12">
   				<label class="form-label">Product Name</label>
-  				<input name="productName" class="form-control" type="email" placeholder="Product Name" required>
+  				<input name="productName" class="form-control" type="text" placeholder="Product Name" required>
   			</div>
   			<!-- Column 3 -->
   			<div class="col-6">

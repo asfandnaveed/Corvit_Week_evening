@@ -19,11 +19,20 @@ if( isset($_POST['productName']) ){
   $product_stock = $_POST['productStock'];
   $product_description = $_POST['productDescription'];
 
+
+  $product_image_name = $_FILES['productImage']['name'];
+  $product_image_size = $_FILES['productImage']['size'];
+  $product_image_type = $_FILES['productImage']['type'];
+  $product_image_file = $_FILES['productImage']['tmp_name'];
+
   $dateTime = date("Y-m-d H:m:s");
+
+
+  move_uploaded_file($product_image_file, 'images/'.$product_image_name);
  
+  $image_path = 'images/'.$product_image_name;
 
-
-  $sql = "INSERT INTO products (p_name,p_price,p_stock,p_description,created_at) VALUE ('$product_name','$product_price','$product_stock','$product_description', '$dateTime')";
+  $sql = "INSERT INTO products (p_name,p_price,p_stock,p_description,created_at,p_image) VALUE ('$product_name','$product_price','$product_stock','$product_description', '$dateTime','$image_path')";
 
 
   if( $con ->query($sql)==TRUE ){
@@ -49,7 +58,7 @@ if( isset($_POST['productName']) ){
   <body>
     
   	<div class="container">
-      <form action="connection.php" method="POST">
+      <form action="connection.php" method="POST" enctype="multipart/form-data">
   		<div class="row">
   			<!-- Column 1 -->
   			<div class="col-12">
@@ -80,7 +89,7 @@ if( isset($_POST['productName']) ){
         <!-- Column 6 -->
         <div class="col-12">
           <label class="form-label">Choose Image</label>
-          <input type="file" accept="image/png, image/jpg" class="form-control" name="">
+          <input type="file" accept="image/png, image/jpg , image/jpeg" class="form-control" name="productImage">
         </div>
   			<!-- Column 7 -->
   			<div class="col-12">

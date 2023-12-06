@@ -77,7 +77,12 @@ if( isset($_POST['productName']) ){
   				<label class="form-label">Product Description</label>
   				<textarea name="productDescription" class="form-control" placeholder="Product Description"></textarea>
   			</div>
-  			<!-- Column 6 -->
+        <!-- Column 6 -->
+        <div class="col-12">
+          <label class="form-label">Choose Image</label>
+          <input type="file" accept="image/png, image/jpg" class="form-control" name="">
+        </div>
+  			<!-- Column 7 -->
   			<div class="col-12">
   				<div class="d-flex justify-content-center" >
   					<button type="submit" class="btn btn-primary mt-3 w-50">Save Product Data</button>

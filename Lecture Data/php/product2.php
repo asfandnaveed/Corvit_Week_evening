@@ -40,13 +40,11 @@ $con = new mysqli($serverAddress,$username,$password,$databaseName);
 
 					 	echo '<div class="col-3 bg-dark text-white">';
 
-					 	echo '<img src="images/02.png" class="img-fluid">';
-
+					 	echo '<img src="'.$row['p_image']. ' " class="img-fluid">';
 					 	echo '<h3>'.$row['p_name'].'</h3>';
 					 	echo '<p>'.$row['p_price'].'</p>';
 					 	echo '<p>'.$row['p_stock'].'</p>';
 					 	echo '<p>'.$row['p_description'].'</p>';
-
 
 					 	echo '</div>';
 					 }
